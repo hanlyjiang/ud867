@@ -11,20 +11,35 @@ Exercises:
 :copySources UP-TO-DATE
 3. Modify the contents of one of the files in the "src" directory.
 4. Run the "copySources" task again and note it is no longer UP-TO-DATE.  YES
-
 5. Delete the "build" directory.
 6. Run the "copySources" task again and note it is no longer UP-TO-DATE.
 7. Run the "bundleSources" task. Note that the "copySources" task is
 still UP-TO-DATE.
+:copySources UP-TO-DATE
+:bundleSources
+
 8. Run the "bundleSources" task again and note it is now UP-TO-DATE.
+:copySources UP-TO-DATE
+:bundleSources UP-TO-DATE
+
 9. Delete the "build/sources.zip" file.
 10. Run the "bundleSources" task and note it is no longer UP-TO-DATE.
+:copySources UP-TO-DATE
+:bundleSources
+
 11. Modify the contents of one of the files in the "src" directory.
 12. Run the "bundleSources" task and note neither task is UP-TO-DATE.
+:copySources
+:bundleSources
+
 13. Run the "bundleSources" task again and note both tasks are now UP-TO-DATE.
+:copySources UP-TO-DATE
+:bundleSources UP-TO-DATE
+
 14. Delete the "build/out" directory.
 15. Run the "bundleSources" task again and note that only the "bundleSources"
 task is marked as UP-TO-DATE.
+NB
 */
 
 task copySources(type: Copy) {

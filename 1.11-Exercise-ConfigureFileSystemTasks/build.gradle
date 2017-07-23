@@ -24,3 +24,31 @@
     4. Create a task named "deleteHelp". This task should perform the following:
         a) Delete the "help" folder created by the "copyWeb" task.
 */
+task copyWeb(type: Copy){
+    from ("src/web") {
+    }
+    from ("src/docs") {
+        include '*.txt'
+        into 'help'
+    }
+    // 外层的into 决定所有from应该被放在哪个目录
+    into "build/web"
+
+}
+
+task bundleWeb(type: Zip,dependsOn: copyWeb){
+    baseName "web"
+    destinationDir file("build")
+    from "build/web"
+    exclude "images"
+}
+
+task unpackBundle(type: Copy, dependsOn: bundleWeb) {
+    // copy 使用zipTree 作为from 参数 因为zipTree 是from 所接受类型的子类型
+    from zipTree('build/web.zip')
+    into 'build/exploded'
+}
+
+task deleteHelp(type: Delete, dependsOn: copyWeb){
+    delete 'build/web/help'
+}
