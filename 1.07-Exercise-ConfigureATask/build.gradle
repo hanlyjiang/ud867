@@ -18,3 +18,17 @@ Hint: Don't forget about the solution file!
 https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:description
 
 */
+task hello
+hello.description = "This is my Hello Task for Gradle "
+hello << {
+	println "Hello World!"
+}
+
+task HelloWorld {
+	description = "这是一个HelloWorld 任务"
+	group = "HanlyJiang 的Task"
+	doLast {
+		println 'Hello World !'
+	}
+
+}

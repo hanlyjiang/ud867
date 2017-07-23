@@ -31,18 +31,19 @@
 
     https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:ordering_tasks
 */
-
+// 冲泡
 task brew {
     doLast {
         println "Brewing. Drip, drip, drip."
     }
 }
-
+// 倒出
 task pour {
     doLast {
         println "Pouring. Glug, glug, glug."
     }
 }
+
 
 task addSweetener {
     doLast {
@@ -67,3 +68,11 @@ task sweetCoffee {
         println "Mmmm, sweet! just how I like it."
     }
 }
+
+
+pour.dependsOn(brew)
+drink.dependsOn(pour)
+
+blackCoffee.dependsOn(drink)
+addSweetener.mustRunAfter(brew)
+sweetCoffee.dependsOn([drink,addSweetener])
