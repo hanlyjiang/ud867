@@ -8,8 +8,10 @@ Exercises:
 
 1. Run the "copySources" task, which copies files from "src" to "build/out".
 2. Run the "copySources" task again and note it is now UP-TO-DATE.
+:copySources UP-TO-DATE
 3. Modify the contents of one of the files in the "src" directory.
-4. Run the "copySources" task again and note it is no longer UP-TO-DATE.
+4. Run the "copySources" task again and note it is no longer UP-TO-DATE.  YES
+
 5. Delete the "build" directory.
 6. Run the "copySources" task again and note it is no longer UP-TO-DATE.
 7. Run the "bundleSources" task. Note that the "copySources" task is
